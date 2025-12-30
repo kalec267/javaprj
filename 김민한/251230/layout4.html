@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        1. body 색 지정
+        2. 공통적인 설정 - *태그로 글자색, 크기, 중앙정렬
+        3. #wrap 설정 - 넓이, 높이(선택), margin:0 auto
+        4. aside, content 설정 -  넓이, 높이
+        5.  aside, header, main, footer 설정 - 넓이(선택), 높이, 배경 
+        */
+        
+        body{
+            background-color: blanchedalmond;
+        }
+        *{
+            font-size: 40px;
+            color: brown;
+            text-align: center;
+        }
+
+        #wrap{
+            width: 1009px;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        #aside{
+            width: 300px;
+            height: 1000px;
+            background: rgb(0, 255, 255);
+        }
+        #content{
+            width: 700px;
+            height: 1000px;
+            background: rgb(0, 136, 136);
+        }
+
+        /* aside display 방식: inline-block일 때 box가 글자취급,
+        baseline 아래정렬에 vertical-align을 이용하여 상단에 위치(top)하도록 설정 변경 */
+        #aside, #content{
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        header, main, footer{
+            width: 700px;
+            height: 330px;
+        }
+
+        header{background-color: coral;}
+        main{background-color: rgb(255, 83, 21);}
+        footer{background-color: rgb(255, 68, 0);}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="aside">
+            <aside>aside</aside>
+        </div>
+    <div id="content">
+        <header>head</header>
+        <main>main</main>
+        <footer>footer</footer>
+    </div>
+</div>
+        
+</body>
+</html>

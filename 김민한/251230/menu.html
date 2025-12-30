@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 
+     flex를 이용한 기본 메뉴 생성
+       1. 모든 태그의 margin padding은 0으로 처리
+       2. nav(green), ul(orange), li(black) 테두리를 생성
+       3. display를 flex로 처리
+       4. li의 점을 없앰
+       5. 마우스가 올라갈 때 배경은 검정, 글자는 흰색
+       6. li를 중앙정렬 (상위 태그를 정렬)
+       7. li태그의 상하좌우의 간격을 조절
+       8. 모든(anv, ul, li) 테두리를 제거
+       9. 테두리를 둘글게 처리
+        -->
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        nav{
+            /* border:solid green 1px; */
+            border:1px solid green;
+        }
+        ul{
+            border:1px solid orange ;
+        }
+        li{
+            border:1px solid black ;
+        }
+        ul{
+            display: flex;
+            list-style: none;
+        }
+        li:hover{
+            background-color: black; color: white;
+        }
+        ul{
+            justify-content: space-around;
+        }
+        li{
+            padding: 8px 12px;
+        }
+
+        nav, ul, li{
+            border: none;
+        }
+
+        li{
+            border-radius: 100px;
+        }
+
+        h3{
+            /* 태그를  */
+            justify-content: center;
+        }
+        h3{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h3>My Web Page</h3><br>
+    <!-- nav 태그의 id는 menu, class는 nav_menu, ul을 이용하여 메뉴 4개를
+     작성하고 메뉴의 이름은 MENU1 ~ MENU4인 태그를 나타내시오 -->
+
+     <!-- nav#menu.nav_menu>ul>li*4{MENU$} -->
+
+      
+     <nav id="menu" class="nav_menu">
+        <ul>
+            <li>MENU1</li>
+            <li>MENU2</li>
+            <li>MENU3</li>
+            <li>MENU4</li>
+        </ul>
+     </nav>
+
+     
+     
+</body>
+</html>

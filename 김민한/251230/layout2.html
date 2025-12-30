@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(161, 161, 255);
+        }
+        .wrap{
+            margin: 0;
+            padding: 0;
+            
+        }
+        header{
+            width: 1000px;
+            height: 100px;
+            font-size: 40px;
+            background-color: rgb(0, 0, 63);
+            color: white;
+            text-align: center;
+            line-height: 100px;
+        }
+        nav{
+            width: 1000px;
+            height: 100px;
+            font-size: 40px;
+            background-color: rgb(0, 0, 116);
+            color: white;
+            text-align: center;
+            line-height: 100px;
+        }
+        
+        main{
+            width: 500px;
+            height: 600px;
+            font-size: 40px;
+            background-color: rgb(0, 0, 63);
+            color: white;
+            text-align: center;
+            line-height: 100px;
+        }
+        aside{
+            width: 250px;
+            height: 600px;
+            font-size: 40px;
+            background-color: rgb(0, 0, 153);
+            color: white;
+            text-align: center;
+            line-height: 100px;
+        }
+        
+        footer{
+            width: 1000px;
+            height: 100px;
+            font-size: 40px;
+            background-color: rgb(0, 0, 90);
+            color: white;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        aside, main{
+            float: left;
+        }
+
+        /* 이전 요소들의 float 영향을 해제 */
+        footer{clear:both}
+        
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header>head</header>
+        <nav>nav</nav>
+        <aside>SIDE_LEFT</aside>
+        <main>content</main>
+        <aside>SIDE_RIGHT</aside>
+        <footer>footer</footer>
+    </div>
+</body>
+</html>

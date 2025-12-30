@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .cnav{background-color: aqua;}
+        #nav2{background-color: antiquewhite;}
+        ul{list-style: none;}
+
+        /* anv2의 특정 태그만 속성 변경 */
+        #nav2>ul>li:first-child{background-color: black; color: white;}
+        #nav2>ul>li:nth-child(3){background-color: brown; color: white;}
+
+        /* nav3 안의 모든 태그 속성 변경 */
+        #nav3 li{background-color: orange;}
+
+        ul, li{list-style: none;}
+    </style>
+</head>
+<body>
+
+    <div id="nav1" class="cnav">
+        <ul>
+            <li>MENU1</li>
+            <li>MENU2</li>
+            <li>MENU3</li>
+            <li>MENU4</li>
+        </ul>
+    </div>
+
+    <!-- div#nav2>ul>li*4 -->
+    <div id="nav2">
+        <ul>
+            <li>SUB_MENU1</li>
+            <li>SUB_MENU2</li>
+            <li>SUB_MENU3</li>
+            <li>SUB_MENU4</li>
+        </ul>
+    </div>
+
+    <div id="nav3">
+        <ul>
+            <li>SUB_MENU1</li>
+            <li>SUB_MENU2</li>
+            <li>SUB_MENU3</li>
+            <li>SUB_MENU4</li>
+        </ul>
+    </div>
+
+    <!-- div.cnav>ul>li{SUB_MENU$$} -->
+    <div class="cnav">
+        <ul>
+            <li>SUB_MENU01</li>
+        </ul>
+    </div>
+
+    <div class="cnav">
+
+    </div>
+</body>
+</html>
