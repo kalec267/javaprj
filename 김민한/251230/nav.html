@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul{
+            border:1px solid red;
+        }
+        li{
+            border:1px solid black
+        }
+        li{
+            list-style: none;
+        }
+        ul{padding: 0;}
+        body{
+            border: solid green;
+        }
+        ul{
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        li{display: inline; /*display:inline, block, inline-block, flex*/}
+        li{padding: 50px 12px; /*padding의 top 부분은 계산되지 않음*/}
+        li{display: inline-block;} /*문제점은 li 사이에 enter 간격 존재*/
+        li{display: flex;} /*flex 속성은 직접적인 속성이 아닌 상위에 적용하는 속성이다*/
+
+        /* li 간격이 발생할 경우 li에 직접적인 처리는 되지 않으며, 상위 태그인 ul만 적용됨 */
+        ul{display: flex;} 
+        
+
+        li{padding: 8px 12px;}
+        /*  */
+        li:hover{background-color: black; color: white;}
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>MENU1</li>
+            <li>MENU2</li>
+            <li>MENU3</li>
+            <li>MENU4</li>
+        </ul>
+    </nav>
+    
+</body>
+</html>
