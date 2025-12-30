@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/1031601f06.js" crossorigin="anonymous"></script>
+
+    <style>
+        i{
+            font-size: 50px;
+            border:1px solid black;
+        }
+
+        /* display가 flex가 아닐 경우 세로정렬 하는 방법은 line-height 사용,
+        문제점은 높이가 정해져있지 않은 사항이므로 높이를 확인할 수 없음 */
+        div{
+            /* display가 flex이면  align-items: center;로  세로정렬,
+            justify-content:로 나눠주기*/
+            display: flex;
+            border:1px solid red;
+            height: 100px;
+            align-items: center;
+            justify-content: space-between;
+            /* 이미지일 때만 이동
+            vertical-align: bottom; */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <i class="fa-solid fa-right-to-bracket"></i>
+        hello
+        <i class="fa-solid fa-user"></i>
+        
+    </div>
+    
+    
+</body>
+</html>
