@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            nav {
+                display: flex;
+            }
+            ul {
+                display: flex;
+            }
+            .navbar_icon,
+            .navbar_logo,
+            .navbar_menu {
+                list-style: none;
+            }
+            .navbar {
+                border: 2px solid black;
+                /* navbar에서 로그는 왼쪽, 메뉴는 중앙, 아이콘은 오른쪽에 배치 */
+                justify-content: space-between;
+            }
+            .navbar_logo {
+                border: 2px solid red;
+            }
+            .navbar_menu > li {
+                /* navbar_menu의 내용을 위아래 좌우 간격 조정 */
+                padding: 8px 12px;
+            }
+            .navbar_icon {
+                border: 2px solid blue;
+            }
+
+            /* navbar_logo, icon을 위아래 간격 조정 */
+            .navbar {
+                align-items: center;
+            }
+            .navbar_logo > li {
+                padding: 8px 0;
+            }
+
+            .navbar_icon > li {
+                padding: 8px 5px;
+            }
+
+            /* navbar에 배경, 글자색, 글자크기 설정 */
+            .navbar {
+                background-color: #263343;
+                color: white;
+                font-size: 18px;
+            }
+            /* border 없애기 */
+            .navbar,
+            .navbar_icon,
+            .navbar_logo,
+            .navbar_menu {
+                border: none;
+            }
+
+            /* 개별 배경색, 글자색, 크기 지정(별도설정) */
+
+            /* 효과지정 */
+            /* 메뉴에 마우스를 올렸을 때 배경색, 글자색 변겨 */
+            .navbar_menu >li:hover {
+                background-color: white;
+                color: black;
+                border-radius: 5px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <nav class="navbar">
+            <ul class="navbar_logo">
+                <li>
+                    <i class="fa-brands fa-accusoft"></i>
+                </li>
+                <li>Seoil</li>
+            </ul>
+            <ul class="navbar_menu">
+                <li>회사소개</li>
+                <li>사업안내</li>
+                <li>예약안내</li>
+                <li>갤러리</li>
+                <li>게시판</li>
+            </ul>
+            <ul class="navbar_icon">
+                <li>
+                    <i class="fa-solid fa-envelope"></i>
+                </li>
+                <li>
+                    <i class="fa-solid fa-camera"></i>
+                </li>
+                <li>
+                    <i class="fa-solid fa-user-plus"></i>
+                </li>
+            </ul>
+        </nav>
+    </body>
+</html>
