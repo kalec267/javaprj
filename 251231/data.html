@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div data-id="3" data-name="apple"></div>
+
+        <ul>
+            <li>
+                <data value="202405104">Cherry Tomato</data>
+            </li>
+            <li>
+                <data value="202405">Beef Tomato</data>
+            </li>
+            <li>
+                <data value="202">Snack Tomato</data>
+            </li>
+        </ul>
+
+        <!-- dl:define list dt: define title dd: define description -->
+        <dl>
+            <dt>java</dt>
+            <dd>java는 객체지향 언어</dd>
+
+            <dt>html</dt>
+            <dd>html은 마크업 언어</dd>
+        </dl>
+
+        <!-- 다이얼로그 접근 방법 -->
+        <dialog open="open">
+            This is an open dialog window
+            <button onclick="dialogtoggle()">다이얼로그 열고닫기</button>
+        </dialog>
+
+        <button onclick="dialogtoggle()">다이얼로그 열고닫기</button>
+
+        <script>
+            let dialog = document.querySelector("dialog");
+            // dialog.showModal(); 상태변수
+            var openstate = true;
+            function dialogtoggle() {
+                if (openstate == true) {
+                    dialog.open = false;
+                    openstate = false;
+
+                } else {
+                    dialog.open = true;
+                    openstate = true;
+                }
+            }
+        </script>
+
+        <br>
+
+        <hr>
+        <input type="text"><br>
+        <input type="password"><br>
+        <input type="button" value="버튼"><br>
+        <input type="submit" value="전송"><br>
+        <input type="radio"><br>
+        <input type="checkbox"><br>
+
+        <input type="color"><br>
+        <input type="date"><br>
+        <input type="range"><br>
+        
+
+    </body>
+
+    <script>
+        console.log(document.querySelector("div").dataset.id);
+        console.log(document.querySelector("div").dataset.name);
+
+        // 첫 번째 li태그 querySelector 접근 방법 <ul>     <li><data value="202405104">Cherry
+        // Tomato</data></li>     <li><data value="202405">Beef Tomato</data></li>
+        // <li><data value="202">Snack Tomato</data></li> </ul>
+        console.log(document.querySelector("ul>li"));
+
+        console.log(document.querySelector("data:first-child").getAttribute("value"));
+
+        // 오류!!
+        // console.log(document.querySelector("data:nth-child(2)").getAttribute("value"));
+    </script>
+</html>

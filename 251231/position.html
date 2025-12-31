@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outter {
+            background-color: red;
+            width: 100px; 
+            height: 100px;
+        }
+        #inner {
+            background-color: yellow;
+            width: 100px; 
+            height: 100px;
+        }
+        #outter2 {
+            background-color: greenyellow;
+            width: 100px; 
+            height: 100px;
+        }
+
+        #outter {
+            position: absolute;
+        }
+        #inner{
+            /* position: relative; */
+            top:50px;
+            left: 50px;
+        }
+        #outter{
+            position: relative;
+            
+        }
+        #inner{
+            /* position: absolute; */
+            position: relative;
+            top:50px;
+            left: 50px;
+        }
+
+        /* 바깥쪽을 relative, 안쪽은 absolute */
+        #outter{
+            position: relative;
+        }
+        #outter2{
+            position: absolute;
+            top:50px;
+            left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="outter">
+        <div id="inner">
+
+        </div>
+    </div>
+    <div id="outter2">outter의 position이 absolute일 경우
+        다른 태그에 영향을 안받음
+    </div>
+</body>
+</html>

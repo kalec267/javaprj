@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+            #wrap{
+                position: relative;
+            }
+
+            /* #menu{
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                border: 1px solid black;
+            } */
+
+            #menu {
+                position: sticky;
+                top: 0px;
+                left: 0px;
+                background-color: aqua;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div id="menu">
+
+                <ul>
+                    <li>
+                        <a href="#content1">content1</a>
+                    </li>
+                    <li>
+                        <a href="#content2">content2</a>
+                    </li>
+                    <li>
+                        <a href="#content3">content3</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div style="background-color: red; width: 500px; height: 500px;" id="content1">content1</div>
+            <div
+                style="background-color: green; width: 500px; height: 500px;"
+                id="content2">content2</div>
+            <div style="background-color: blue; width: 500px; height: 500px;" id="content3">content3</div>
+        </div>
+    </body>
+</html>
