@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Form 예제</title>
+    </head>
+    <body>
+
+        <fieldset>
+            <legend>로그인 (GET 방식)</legend>
+            <form action="login_proc.html">
+                ID:
+                <input type="text" name="id"><br>
+                PW:
+                <input type="password" name="password"><br>
+                <input type="submit" value="로그인">
+            </form>
+        </fieldset>
+
+        <fieldset>
+            <legend>로그인 (POST 방식)</legend>
+            <form action="login_proc.html" method="post">
+                <input type="text" name="id" placeholder="id입력"><br>
+                <input type="password" name="password" placeholder="pw"><br>
+                <input type="submit" value="로그인">
+            </form>
+        </fieldset>
+
+        <fieldset>
+            <legend>label 사용</legend>
+            <form action="login_proc.html" method="post">
+                <label for="id3">ID:</label>
+                <input type="text" name="id3" id="id3"><br>
+
+                <label for="pw3">PW:</label>
+                <input type="password" name="pw3" id="pw3"><br>
+
+                <input type="submit" value="로그인">
+            </form>
+        </fieldset>
+
+        <fieldset>
+            <legend>기타 input 태그</legend>
+            <ul>
+                <li>
+                    <label>체크박스</label>
+                    <span>
+                        <input type="checkbox">
+                        1
+                        <input type="checkbox">
+                        2
+                        <input type="checkbox">
+                        3
+                    </span>
+                </li>
+
+                <li>
+                    <label>라디오 버튼</label>
+                    <span>
+                        <input type="radio" name="num" checked="checked">
+                        1
+                        <input type="radio" name="num">
+                        2
+                        <input type="radio" name="num">
+                        3
+                    </span>
+                </li>
+
+                <li>
+                    <label>선택상자</label>
+                    <span>
+                        <select>
+                            <option>서울</option>
+                            <option>대전</option>
+                            <option>대구</option>
+                            <option>부산</option>
+                        </select>
+                    </span>
+                </li>
+
+                <li>
+                    <label>파일 업로드</label>
+                    <input type="file">
+                </li>
+
+                <li>
+                    <label>날짜 선택</label>
+                    <input type="datetime-local">
+                </li>
+
+                <li>
+                    <label>기타 타입</label>
+                    <div><input type="email">
+                        이메일</div>
+                    <div><input type="search">
+                        검색</div>
+                    <div><input type="number">
+                        숫자</div>
+                    <div><input type="tel">
+                        전화번호</div>
+                    <div><input type="url">
+                        URL</div>
+                </li>
+
+                <li>
+                    <label>색상 선택</label>
+                    <form action="">
+                        <div><input type="color" name="color"></div>
+                        <div><input type="submit" value="전송"></div>
+                    </form>
+
+                    <form action="">
+                        <div><input type="range" name="range" min="0" ,="," max="255"></div>
+                        <div><input type="submit" value="전송"></div>
+                    </form>
+                </li>
+
+                <li>
+                    <label>input 상자 속성</label>
+                    <div>type를 사용한 상자 숨기기<input type="hidden"></div>
+                    <div>hidden을 잉요하여 직접 없애기<input type="text" hidden="hidden"></div>
+                    <div>읽기전용/ 전송가능(활성화)<input type="text" value="admin1" readonly="readonly"></div>
+                    <div>읽기전용/ 전송불가 (비활성화)<input type="text" value="admin2" disabled="disabled"></div>
+                    <div>참고: 스크립트에서 input.readonly=true or false, input.disabled=true or false
+                    </div>
+                </li>
+                <style>
+                    input[type="text"]:disabled {
+                        background-color: yellow;
+                    }
+                </style>
+
+                <li>
+                    <input
+                        type="image"
+                        src="../260102/다운로드.jpg"
+                        title="asa"
+                        alt="asa"
+                        width="200px">
+                    <span class="tooltip">도움말
+                        <span class="tooltip-text">설명입니다.</span>
+                    </span>
+                </li>
+
+                <li>
+                    <label>input의 type이 button과 태그의 버튼은 다르다.</label><br>
+
+                    <form>
+                        <input type="text" name="" id="">
+                        <!-- <input type="button" value="전송"> -->
+                        <button>전송</button>
+                    </form>
+                </li>
+
+                <li>
+                    <label>type text는 한 줄, textarea는 여러 줄</label><br>
+                    <div>
+                        <textarea rows="10" cols="40">다중 편집 창 태그</textarea>
+                    </div>
+                    <div contenteditable="true">div는 단순히 글자를 표현하는 창이다</div>
+                </li>
+
+                <!-- value:: 태그가 단일 태그(input)인 편짐, content: 시작과 끝이 있는 태그 -->
+
+                <li>
+                    <label>vlaue 값 수정</label>
+                    <div><input type="text" id="changevalue"></div>
+                    <div contenteditable="true" id="changecontent" style="border: 1px solid red;"></div>
+                </li>
+                <script>
+                    document
+                        .getElementById("changevalue")
+                        .value = "input 상자에 값 넣기";
+                    document
+                        .getElementById("changecontent")
+                        .textContent = "div 상자에 값 넣기";
+                </script>
+
+                <li>
+                    <form>
+                        <label>제약사항은 스크립트로 처리 하지만 스크립트 없이 제약사항 처리하는 방법
+                        </label>
+                        <div><input type="email" placeholder="email" required></div>
+                        <div><input type="text" placeholder="message" size="30" maxlength="10"></div>
+                        <div><input type="submit" value="전송"></div>
+                    </form>
+
+                </li>
+            </ul>
+        </fieldset>
+
+    </body>
+</html>

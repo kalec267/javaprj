@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+#wrap {
+    background-color: rgba(20,20,20,0.1);
+    margin: 10px;
+    padding: 3% 10%;
+    border-radius: 5px;
+}
+
+#wrap > h3 {
+    color: blue;
+}
+
+#wrap ul {
+    list-style: none;
+}
+
+#wrap li {
+    padding-top: 5px;
+}
+
+ul > li:nth-child(3) {
+    font-size: 13px;
+    color: gray;
+}
+
+#email,
+#password {
+    /* 넓이, 높이/ 테두리(모서리 둥글게, 색)/ 배경색, 글자색 */
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    border-color: rgba(0,0,0,0);
+    background-color: rgba(10,10,10,0.1);
+}
+
+/* 접근자 : 
+id: #
+class: . 
+>: 하위 태그 접근
+space: 손자 접근
+~: 태그명 뒤에 있는 태그 접근
++: 바로 다음 형제
+*/
+#idsave ~ span {
+    color: gray;
+}
+input[type="submit"] {
+    border-color: rgba(255,255,255,0);
+    background-color: blue;
+    color: white;
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+}
