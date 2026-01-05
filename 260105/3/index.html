@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            .header > header {
+                width: 100%;
+                height: 15vh;
+                background-color: gray;
+                color: white;
+                line-height: 15vh;
+                text-align: center;
+                font-size: 30px;
+            }
+            .main {
+                display: flex;
+            }
+            .main > aside {
+                width: 20%;
+                height: 70vh;
+                text-align: center;
+            }
+            .footer > footer {
+                width: 100%;
+                height: 15vh;
+                background-color: gray;
+                color: white;
+                line-height: 15vh;
+                text-align: center;
+                font-size: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="header">
+                <header>Cites</header>
+            </div>
+            <div class="main">
+                <aside>
+                    <ul>
+                        <li onclick="loadpage('london.html')">런던</li>
+                        <li onclick="loadpage('tokyo.html')">도쿄</li>
+                        <li onclick="loadpage('paris.html')">파리</li>
+                    </ul>
+                </aside>
+                <main id="main">
+                    <article>
+                        <h2 id="city">city</h2>
+
+                        <dl>
+                            <dt id="kind">kind</dt>
+                            <dd id="desc">desc</dd>
+                        </dl>
+
+                    </article>
+                </main>
+            </div>
+            <div class="footer">
+                <footer>footer</footer>
+            </div>
+        </div>
+        <script>
+            //객체얻기
+            const xhttp = new XMLHttpRequest();
+            xhttp.open("get", "object.json", true);
+            xhttp.send();
+            xhttp.onreadystatechange = function () {
+                // console.log(xhttp.responseText);
+                let obj=JSON.parse(xhttp.responseText);
+                console.log(obj.city);
+                console.log(obj.kind);
+                console.log(obj.desc);
+                document.getElementById("city").textContent=obj.city;
+                document.getElementById("kind").textContent=obj.kind;
+                document.getElementById("desc").textContent=obj.desc;
+            }
+        </script>
+
+    </body>
+</html>

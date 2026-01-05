@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            .header > header {
+                width: 100%;
+                height: 15vh;
+                background-color: gray;
+                color: white;
+                line-height: 15vh;
+                text-align: center;
+                font-size: 30px;
+            }
+            .main {
+                display: flex;
+            }
+            .main > aside {
+                width: 20%;
+                height: 70vh;
+                text-align: center;
+            }
+            .footer > footer {
+                width: 100%;
+                height: 15vh;
+                background-color: gray;
+                color: white;
+                line-height: 15vh;
+                text-align: center;
+                font-size: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="header">
+                <header>Cites</header>
+            </div>
+            <div class="main">
+                <aside>
+                    <ul>
+                        <li onclick="loadpage('london.html')">런던</li>
+                        <li onclick="loadpage('tokyo.html')">도쿄</li>
+                        <li onclick="loadpage('paris.html')">파리</li>
+                    </ul>
+                </aside>
+                <main id="main">
+                    main
+                </main>
+            </div>
+            <div class="footer">
+                <footer>footer</footer>
+            </div>
+        </div>
+        <script>
+            /*
+        const main=document.getElementById("main");
+        // ajax 통신을 위한 순서
+        // 1. 객체 얻기, 사이트 열기, 보내기, 수신하기
+        // 1.소캣 생성 후 2.생성된 소캣을 이용해서 데이터를 보냄 3.소캣 받기
+        const xhttp=new XMLHttpRequest(); // XMLHttpRequest 객체 얻기(도구생성)
+        // 파라미터 순서: 메소드(get, post), URL, 동기/비동기
+        xhttp.open("GET","london.html", true); //사이트 열기
+        xhttp.send(); //보내기
+        //수신하기
+        xhttp.onreadystatechange=function(){
+            // responseText: 파일 요청한걸 문자로 수신
+            // main.textContent=xhttp.responseText
+            // html 형식으로 표시
+            main.innerHTML=xhttp.responseText;
+        }
+            */
+
+            // function loadpage() {
+            //     const main = document.getElementById("main");
+            //     const xhttp = new XMLHttpRequest();
+            //     xhttp.open("GET", "tokyo.html", true);
+            //     xhttp.send();
+            //     xhttp.onreadystatechange = function () {
+            //         main.innerHTML = xhttp.responseText;
+            //     }
+
+            // }
+
+            // 변경되는 부분은 페이지(URL)이므로 함수의 입력값으로 처리
+            // 변경되는 부분은 변수로 만들어라
+            function loadpage(url) {
+                const main = document.getElementById("main");
+                const xhttp = new XMLHttpRequest();
+                xhttp.open("GET", url, true);
+                xhttp.send();
+                xhttp.onreadystatechange = function () {
+                    main.innerHTML = xhttp.responseText;
+                }
+
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>hover 텍스트 변경</title>
+        <style>
+            .wrap {
+                position: relative;
+            }
+
+            .content {
+                width: 150px;
+                height: 100px;
+                border: 1px solid black;
+                text-align: center;
+                font-size: 20px;
+                font-weight: bold;
+                line-height: 100px;
+                position: absolute;
+                
+            }
+
+            /* hover 시 기존 글자 숨김 */
+            .content:hover {
+                color: transparent;
+                /* 원본 태그는 content 속성이 없음 */
+                /* content:"구독 | 기사보기" */
+            }
+
+            .content:hover::before {
+                content: "before";
+            }
+
+            /* hover 시 나타날 글자 */
+            .content:hover::after {
+                content: "after";
+                background-color: blue;
+                color: white;
+            }
+
+            .content:hover::after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                content:"구독|기사보기";
+                width: 100%;
+            }
+
+            .content {
+                background-color: white;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="wrap">
+            <div class="content">서울신문</div>
+        </div>
+
+    </body>
+</html>

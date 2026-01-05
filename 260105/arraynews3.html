@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .wrap {
+                display: flex;
+                /* 단순히 flex일 경우 한 줄에서 아랫줄로 내려가지 않는 문제 발생 */
+                flex-wrap: wrap;
+                /*줄바꿈 허용, width와 height 속성이 적용*/
+                align-items: center;
+                /*tag에 대한 정렬이므로 현재 태그는 꽉 찬 상태이므로 정렬이 되어있는 상태*/
+            }
+            .content {
+                width: 100px;
+                height: 100px;
+                border: 1px solid black;
+                /*좌우정렬*/
+                text-align: center;
+                /* 위아래 정렬 */
+                align-content: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap" class="wrap"></div>
+
+        <script>
+            // var news = ["서울신문", "MBC", "KBS", "SBS"];
+            const news = [
+                "조선일보",
+                "중앙일보",
+                "동아일보",
+                "한겨레",
+                "경향신문",
+                "한국일보",
+                "매일경제",
+                "한국경제",
+                "서울신문",
+                "세계일보",
+                "국민일보",
+                "문화일보",
+                "머니투데이",
+                "연합뉴스",
+                "뉴스1",
+                "뉴시스",
+                "YTN",
+                "JTBC",
+                "KBS",
+                "MBC",
+                "SBS"
+            ];
+            for (i = 0; i < news.length; i++) {
+                console.log(news[i]);
+            }
+
+            // 박스 만들기
+            for (i = 0; i < news.length; i++) {
+                // const div=document.createElement("div");
+                let div = "<div class='content' onmouseover='contentstyle(this)' onmouseout='contentstyle" +
+                        "2(this)'>" + news[i] + "</div>";
+
+                document
+                    .getElementById("wrap")
+                    .innerHTML += div;
+            }
+
+            function contentstyle(obj) {
+                // console.log('access');
+                obj.style.backgroundColor = "blue";
+                obj.style.color = "white";
+                obj.textContent = "구독|기사보기";
+            }
+
+            function contentstyle2(obj) {
+                // console.log('access');
+                obj.style.backgroundColor = "white";
+                obj.style.color = "black";
+                // 마우스 아웃을 한 객체의 위치 찾기
+                // 태그를 찾는 명령어
+                let divs = document.querySelectorAll(".content");
+                
+                console.log("전체 갯수:" + divs.length);
+                divs.forEach((div, index) => {
+                    if (div == obj) {
+                        console.log("같은 객체: "+index)}
+                        div.textContent=news[index];
+                    // } else {console.log("다른 객체")}
+                });
+            }
+        </script>
+    </body>
+</html>

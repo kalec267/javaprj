@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .wrap {
+                position: relative;
+            }
+            body {
+                position: relative;
+            }
+            .content::before {
+                content: "BEFORE";
+                background-color: yellow;
+                top: 50px;
+                left: 50px;
+                position: absolute;
+                width: 100px;
+                height: 100px;
+            }
+
+            .content {
+                width: 100px;
+                height: 100px;
+                background-color: red;
+                position: absolute;
+                top: 0;
+                left: 0;
+
+            }
+
+            .content::after {
+                content: "AFTER";
+                background-color: green;
+                top: 100px;
+                left: 100px;
+                position: absolute;
+                width: 100px;
+                height: 100px;
+            }
+
+            .content:hover {
+                content:"hover content";
+            }
+            .content:hover::before {
+                content:"hbeover content";
+            }
+            .content:hover::after {
+                content:"hafover content";
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="wrap">
+            <div class="content">div</div>
+        </div>
+    </body>
+</html>
