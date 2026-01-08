@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+        <style>
+            /* 한 줄로 표시 */
+            li {
+                display: flex;
+            }
+            .info {
+                display: flex;
+                /*  */
+                flex-direction: column;
+            }
+
+            ul {
+                /* border: 1px solid red; */
+                padding: 0;
+            }
+            li {
+                /* border: 2px solid green; */
+                border-bottom: 1px solid gray;
+                padding: 15px;
+
+            }
+
+            /* ul관점에서 padding임 */
+            /* li관점에서 좌측 중앙 우측 정렬 */
+            li {
+                justify-content: space-between;
+
+            }
+            * {
+                /* border: 1px solid green; */
+            }
+
+            /* .info 안에 있는 태그(item)들 왼쪽 정렬 */
+            .info {
+                /* 왼쪽 정렬 */
+                align-items: flex-start;
+                flex: 1;
+            }
+
+            /* item들 세로정렬 */
+            .info {
+                justify-content: center;
+            }
+            .arrow {
+                align-content: center;
+            }
+
+            /* 사진을 둥글게 처리 */
+            img {
+                width: 100px;
+                height: 100px;
+                /* 오브젝트에 맞춰서 자동으로 처리 */
+                object-fit: cover;
+
+                border-radius: 50%;
+            }
+
+            /* 디자인 처리 */
+            .wrap {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 100vh;
+                border: 5px solid black;
+                border-radius: 15px;
+            }
+            .header {
+                background-color: gray;
+                color: white;
+                text-align: center;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+            }
+
+            .search {
+                background-color: #ccc;
+                height: 60px;
+            }
+            .search input {
+                
+                width: 80%;
+                height: 30px;
+                background-color: white;
+                border-radius: 6px;
+                text-align: left;
+                align-content: center;
+
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="wrap">
+            <div class="header">
+                <h2>Contacts</h2>
+            </div>
+
+            <div class="search">
+                <div class="search inputbox">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+
+            </div>
+            <ul>
+                <li>
+                    <!-- block 이미지 옆에 텍스트가 있으면 텍스트를 블럭화 시켜야함-->
+                    <img src="karina.png" alt="사진">
+                    <div class="info">
+                        <label>카리나</label>
+                        <span>010-1234-5678</span>
+                    </div>
+                    <span class="arrow">&gt;</span>
+                </li>
+
+                <li>
+                    <!-- block 이미지 옆에 텍스트가 있으면 텍스트를 블럭화 시켜야함-->
+                    <img src="karina.png" alt="사진">
+                    <div class="info">
+                        <label>아사</label>
+                        <span>010-2352-2356</span>
+                    </div>
+                    <span class="arrow">&gt;</span>
+                </li>
+
+                <li>
+                    <!-- block 이미지 옆에 텍스트가 있으면 텍스트를 블럭화 시켜야함-->
+                    <img src="karina.png" alt="사진">
+                    <div class="info">
+                        <label>윈터</label>
+                        <span>010-9575-3847</span>
+                    </div>
+                    <span class="arrow">&gt;</span>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

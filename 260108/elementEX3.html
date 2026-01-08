@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+    </head>
+    <body>
+        <form action="" onsubmit="return confirm()">
+            <label>이름</label>
+            <input type="text">
+            <br>
+            <label>전화번호</label>
+            <input type="text">
+            <br>
+            <label>이메일</label>
+            <input type="text">
+            <br>
+            <label>주소</label>
+            <input type="text">
+            <br>
+            <input type="submit" value="전화번호저장">
+        </form>
+
+        <script>
+            // input 태그 수집 inputs 배열의 순서대로 어떤 내용이 저장되는지 확인
+            let inputs = document.querySelectorAll("input[type='text']");
+            console.log(inputs);
+            // 유효성 검사 사항 중 값이 비어있으면 안되는 경우 처리 아래 함수의 문제점: forEach 함수가 콜백 함수이므로 코드가 중간에 중지되지
+            // 않는 문제 function confirm() {     inputs.forEach(element => {
+            // if(element.value===""){             alert('입력 값이 비어있습니다.'); element.focus();
+            // return false;         }     }); }
+
+            // 아래 함수는 콜백 함수가 아니므로 false를 만나는 순간 함수가 종료되어 정상처리
+            function confirm() {
+                for (element of inputs) {
+                    if (element.value === "") {
+                        alert('입력 값이 비어있습니다.');
+                        element.focus();
+                        return false;
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

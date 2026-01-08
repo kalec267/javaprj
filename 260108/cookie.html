@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <form >
+        <ul>
+            <li><input type="text" name="id" id="id" placeholder="아이디"></li>
+            <li><input type="password" name="password" id="password" placeholder="패스워드"></li>
+            <li><input type="button" value="로그인" onclick="login()"></li>
+        </ul>
+    </form>
+</body>
+<script>
+    const id=document.getElementById("id");
+    const password=document.getElementById("password");
+function login(){
+    let _id=id.value;
+    let _password=password.value;
+    //document.cookie="id="+_id+";";
+    
+    //한번에 여러개의 쿠키를 저장할 수 없음
+    //document.cookie=`id=${_id}; password=${_password}; path=/;`;
+
+    //path가 없는 상태(정상작동)
+    document.cookie=`id=${_id};`;
+    document.cookie=`password=${_password};`;
+
+    //path를 설정하면 해당 경로일 때만 cookie를 수신할 수 있음
+    //document.cookie=`id=${_id}; path=/;`;
+    //document.cookie=`password=${_password}; path=/;`;
+    
+    location.href="cookieproc.html"
+}
+</script>
+</html>

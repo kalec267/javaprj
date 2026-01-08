@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 설명글을 보이는 그대로 출력 -->
+    <pre>
+        제목: html 파일에서 html 파일로 데이터를 전송하는 방법
+        내용: 
+        post 방식일 경우: html -> html 파일로 전송은 불가
+        get방식일 경우: location.href, new URLSearchParams() 활용
+        ajax 방식일 경우: 
+
+    </pre>
+
+    <script>
+
+        console.log(location.href);
+        const href = new URL(location.href);
+        console.log(href.host);
+        console.log(href.pathname);
+        console.log(href.search);
+
+        console.log(location.search);
+        const url = new URLSearchParams(location.search);
+
+        console.log(url);
+        console.log(url.get("id"));
+        console.log(url.get("password"));
+    </script>
+</body>
+
+</html>

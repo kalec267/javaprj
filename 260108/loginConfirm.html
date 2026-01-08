@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //어떤 내용에 대해서 유효성을 검사할 것인지 정하는 것이 문제?
+        //id 비어있는지 여부, 길이가 5이상 9미만
+        //password 비어있는지 여부, 특수문자/숫자/영문/대문자하나이상 포함여부, 길이가 5이상 9미만
+        function confirm() {
+            const id = document.getElementById("id");
+            const password = document.getElementById("password");
+
+            if (id.value === "") {
+                alert("아이디가 비어 있습니다.");
+                id.focus();
+                return false;
+            }
+
+            if (!(id.value.length >= 5 && id.value.length < 9)) {
+                alert("아이디 길이를 확인하세요.");
+                id.focus();
+                return false;
+            }
+
+            if (password.value === "") {
+                alert("패스워드가 비어 있습니다.");
+                password.focus();
+                return false;
+            }
+
+            if (!(password.value.length >= 5 && password.value.length < 9)) {
+                alert("패스워드 길이를 확인하세요.");
+                password.focus();
+                return false;
+            }
+            //정규식
+            const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^\w\s]).+$/;
+            if (!regex.test(password.value)) {
+                alert("패스워드를 다시 확인하세요.");
+                password.focus();
+                return false;
+            }
+
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <form action="login_proc.html" method="post" onsubmit="return confirm()">
+        <ul>
+            <li><input type="text" name="id" id="id" placeholder="아이디"></li>
+            <li><input type="password" name="password" id="password" placeholder="패스워드"></li>
+            <li><input type="submit" value="로그인"></li>
+        </ul>
+    </form>
+</body>
+
+</html>

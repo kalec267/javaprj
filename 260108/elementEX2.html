@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script>
+            function confirm() {
+                let name = document.getElementById("name");
+                let hp = document.getElementById("hp");
+                let email = document.getElementById("email");
+                let address = document.getElementById("address");
+
+                //유효성 검사 (비어있는지 여부 확인, 길이(사이즈)확인, 형식확인, 데이터 범위확인)
+                if (name.value === "") {
+                    alert("이름이 비어 있습니다.");
+                    name.focus();
+                    return false;
+                }
+
+                if (hp.value.length != 13) {
+                    alert("전화번호 길이를 확인하세요");
+                    hp.value = "";
+                    hp.focus();
+                    return false;
+                }
+
+                if (!email.value.includes("@")) {
+                    alert("이메일 형식을 확인하세요.");
+                    email.focus();
+                    return false;
+                }
+                if (!isKoreanAddress(address.value)) {
+                    alert("주소를 확인하세요.");
+                    address.focus();
+                    return false;
+                }
+
+                // is는 true 또는 false 반환
+                function isKoreanAddress(str) {
+                    if (!str) 
+                        return false;
+                    
+                    const keywords = /(로|길|동|번지|호|아파트|빌라|층)/;
+                    const hasNumber = /\d+/;
+
+                    return (str.length >= 8 && keywords.test(str) && hasNumber.test(str));
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form action="" onsubmit="return confirm()">
+            <label for="">이름</label>
+            <input type="text" id="name" name="name">
+            <br>
+            <label for="">전화번호</label>
+            <input type="text" id="hp" name="hp">
+            <br>
+            <label for="">이메일</label>
+            <input type="text" id="email" name="email">
+            <br>
+            <label for="">주소</label>
+            <input type="text" id="address" name="address">
+            <br>
+            <input type="submit" value="전화번호저장">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>
+    <input type="text"><br>    
+</body>
+<script>
+    // // html 내에서 태그를 찾는 함수
+    // document.querySelector(); 
+    // document.querySelectorAll(); // 반환값 nodelist
+    // document.getElementById(); 
+
+    // // 태그를 찾아서 배열 형태로
+    // document.getElementsByName(); // 반환값 nodelist
+    // document.getElementsByTagName(); // 반환값 htmlcollection
+    // document.getElementsByClassName(); // 반환값 htmlcollection
+
+    
+    //let으로 선언된 변수는 문법에 엄격하므로 초기화 해야함
+    let inputs = undefined; 
+
+    // collection 반환 (forEach 존재 안함)
+    inputs = document.getElementsByTagName("input");
+    console.log(inputs);
+
+    // foreach 대신 배열 사용
+    for(i=0;i<inputs.length;i++){
+        console.log(inputs[i]);
+    }
+
+
+
+    // nodelist 반환 (forEach 존재)
+    inputs=document.querySelectorAll("input")
+    console.log(inputs);
+
+    inputs.forEach(element => {
+        console.log(element);
+    });
+
+    // input 태그에 배경색을 노란색으로 모두 변경하시오
+    inputs.forEach(element => {
+        element.style.backgroundColor="yellow";
+    });
+
+    // input tag의 값을 순차적으로 1부터 n까지 입력하시오
+    let j=1;
+    inputs.forEach(element => {
+        element.value=j++;
+    });
+</script>
+</html>

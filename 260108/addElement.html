@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body></body>
+    <script>
+        let all = document.querySelectorAll("html");
+        let h1 = document.createElement("h1");
+        h1.id = "main";
+        h1.className = "main";
+        h1.name = "main";
+        h1.style.backgroundColor = "yellow";
+        h1.textContent = "h1 태그를 만들었습니다.";
+
+        all[0]
+            .querySelector("body")
+            .appendChild(h1);
+
+        // class가 존재하는 상태에서 추가적으로 class 이름을 하나 더 부가하고
+        h1
+            .classList
+            .add("main2");
+        // html 문서에서 기본으로 설정된 속성 외에 사용자 속성을 넣고싶은 경우
+        h1.setAttribute("message", "내가 만든 속성");
+        console.log(h1.getAttribute("message"));
+        // data 속성 추가하고 값을 가져오기
+        h1.setAttribute("data-user-id", "admin");
+        console.log(h1.dataset.userId);
+        console.log(all);
+
+        // 이벤트 추가하기(해석: 클릭을 할 때 어떤 함수가 실행된다.)
+        function myfunc() {}
+        h1.addEventListener("click", myfunc);
+
+        h1.addEventListener("click", function () {
+            event.preventDefault();
+            alert("h1을 클릭 했습니다.");
+        });
+
+        h1.addEventListener("mouseover", function (event) {
+            // 다른 이벤트가 처리되지 않도록 방지해야함
+            event.preventDefault();
+
+            event.stopPropagation(); // 부모에게 전파 막기
+            this.style.backgroundColor = "red"; // 여기에서 this는 h1 태그를 의미함
+        });
+
+        h1.addEventListener("mouseout", function (event) {
+            event.preventDefault();
+            event.target.style.backgroundColor = "yellow";
+        });
+
+        document.querySelector("body").addEventListener("keypress", function (event){
+            // h1 태그상에서 키보드를 눌렀을 때 어떤 키가 눌렸는지 console로 표시
+            event.preventDefault();
+            console.log(event.keyCode);
+            console.log(event.code);
+            console.log(event.key);
+        });
+
+        // 
+    </script>
+</html>

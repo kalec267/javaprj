@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+        <style>
+            button,
+            input {
+                width: 100px;
+                height: 30px;
+                background-color: rgba(0, 0, 255, 0.9);
+                color: white;
+                border: none;
+                border-radius: 5px;
+            }
+            .inputbutton {
+                position: relative;
+            }
+            /* .inputbutton > i {
+                position: absolute;
+                top: 8px;
+                left: 10px;
+                color: white;
+            } */
+
+            .inputbutton {
+                /* border: 1px solid red; */
+            }
+            .inputbutton > i {
+                position: absolute;
+                top: 50%;
+                left: 20%;
+                color: white;
+                transform: translate(-50%, -35%);
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <button>
+                <i class="fa-solid fa-phone"></i>&nbsp;&nbsp&nbsp;Call</button>
+        </div>
+        <hr>
+        <span class="inputbutton">
+            <input type="button" value="Call">
+            <i class="fa-solid fa-phone"></i>
+        </span>
+
+    </body>
+</html>

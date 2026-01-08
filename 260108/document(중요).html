@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        // html 문서는 위에서 아래로 순차적으로 로드된다.
+        document.querySelector("title").innerText="javascript document";
+
+        let all=document.querySelectorAll("html");
+        console.log(all);
+        console.log(all[0]); //nodelist를 확장하면 0에 해당하는 부분
+        console.log(all.length); ////nodelist를 확장하면 length에 해당하는 부분(속성)
+
+        // prototye 확장
+        // console.log(all[0].item()); //접근오류 발생
+        console.log(all.item(0));
+        console.log(all.item(0).length); //undefined는 결과가 없다는 뜻
+        console.log(all.item(0).name);
+
+        // all 객체를 이용해서 title객체에 접근하기
+        // html을 다 수집했는데 그 중에 head를 찾기
+        let head=all.item(0).querySelector("head"); //all.item(0)==all[0]
+        // 수집한 head 안에서 title 찾기
+        let title=head.querySelector("title");
+        console.log(title.innerHTML);
+        console.log(title.innerText);
+        console.log(title.textContent);
+        title.textContent="change title";
+        
+        
+        // body 택 안에 h1이라는 태그를 넣고싶은 경우 동작 순서 확인
+        /*
+        1. h1 태그 생성, h1이라는 태그를 만드는 함수 create, tag는 element,
+        document.createElement("h1");
+        2. 태그의 속성을 생성하고 값을 부여한다. (name. id, class, style, textContent)
+        3. 만들어진 객체를 body태그 안에 주입한다.
+        */
+        
+        let h1=document.createElement("h1");
+        h1.id="main";
+        // class 십입
+        h1.className="main";
+        h1.name="main";
+        h1.style.backgroundColor="yellow";
+        h1.textContent="h1 태그를 만들었습니다.";
+        // all[0]이 카리키는 것은 html 태그이다.
+        all[0].querySelector("body").appendChild(h1);
+        // 오류가 발생하는 이유는 body를 읽을 수 없으므로 오류 발생
+        // addElement.html에서 처리
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
