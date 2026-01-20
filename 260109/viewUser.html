@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>사용자 상세 정보</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+            }
+
+            .container {
+                width: 600px;
+                margin: 40px auto;
+                padding: 30px;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+
+            h2 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .form-group {
+                display: flex;
+                margin-bottom: 15px;
+            }
+
+            .form-group label {
+                width: 120px;
+                font-weight: bold;
+            }
+
+            .form-group input {
+                flex: 1;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .form-group input[readonly] {
+                background-color: #f9f9f9;
+            }
+
+            .btn-area {
+                text-align: center;
+                margin-top: 25px;
+            }
+
+            button {
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            .btn-back {
+                background-color: #777;
+                color: #fff;
+            }
+
+            .btn-edit {
+                background-color: #4CAF50;
+                color: #fff;
+                margin-left: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h2>사용자 상세 정보</h2>
+
+            <form>
+                <div class="form-group">
+                    <label>이름</label>
+                    <input id="name" readonly="readonly">
+                </div>
+
+                <div class="form-group">
+                    <label>별명</label>
+                    <input id="nickname" readonly="readonly">
+                </div>
+
+                <div class="form-group">
+                    <label>이메일</label>
+                    <input id="email" readonly="readonly">
+                </div>
+
+                <div class="form-group">
+                    <label>주소</label>
+                    <input id="address" readonly="readonly">
+                </div>
+
+                <div class="form-group">
+                    <label>전화번호</label>
+                    <input id="phone" readonly="readonly">
+                </div>
+
+                <div class="form-group">
+                    <label>웹사이트</label>
+                    <input id="website" readonly="readonly">
+                </div>
+
+                <div class="form-group">
+                    <label>회사</label>
+                    <input id="company" readonly="readonly">
+                </div>
+
+                <div class="btn-area">
+                    <button type="button" class="btn-back">목록</button>
+                    <button type="button" class="btn-edit">수정</button>
+                </div>
+            </form>
+        </div>
+    </body>
+    <script>
+        // 전달되는 파라미터의 값을 확인
+        const _url = new URLSearchParams(location.search);
+        console.log(_url.get("id"));
+        const _id = _url.get("id");
+        // 위에서 전달받은 파라미터는 주소의 입력값으로 사용함\
+    const url=`https://jsonplaceholder.typicode.com/users?id=${_id}`;
+
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("GET", url, true);
+        xhttp.send();
+        xhttp.onload = function () {
+            const obj = JSON.parse(xhttp.responseText);
+            console.log(obj);
+
+            const inputs = document.querySelectorAll("input");
+            for (input of inputs) {
+                // if(input.id==="name") {     alert(input.value); }
+
+                switch (input.id) {
+                    case "name":
+                        input.value = obj[0].name;
+                        break;
+                    case "nickname":
+                        input.value = obj[0].nickname;
+                        break;
+                    case "email":
+                        input.value = obj[0].email;
+                        break;
+                    case "address":
+                        input.value = `${obj[0]
+                            .address
+                            .street} ${obj[0]
+                            .address
+                            .zipcode}`;
+                        break;
+                    case "phone":
+                        input.value = obj[0].phone;
+                        break;
+                    case "website":
+                        input.value = obj[0].website;
+                        break;
+                    case "company":
+                        input.value = `${obj[0]
+                            .company
+                            .catchPhrase} ${obj[0]
+                            .company
+                            .bs}`;
+                        break;
+                }
+            }
+        }
+    </script>
+</html>

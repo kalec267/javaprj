@@ -1,0 +1,2 @@
+영화진흥원: 6e064906a1b819051e85a4aaa9025f8f
+http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=6e064906a1b819051e85a4aaa9025f8f&targetDt=20120101

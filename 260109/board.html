@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .form-container {
+            margin-top: 20px;
+        }
+
+        .form-container input,
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .form-container button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>게시판</h1>
+        <!-- 게시물 목록 -->
+        <table>
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>작성일</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                <tr>
+                    <td>1</td>
+                    <td><a href="#">첫 번째 게시물</a></td>
+                    <td>홍길동</td>
+                    <td>2026-01-09</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><a href="#">두 번째 게시물</a></td>
+                    <td>김철수</td>
+                    <td>2026-01-08</td>
+                </tr>
+                <!-- 게시물 목록은 여기에 추가됩니다 -->
+            </tbody>
+        </table>
+
+    </div>
+
+    <script>
+        const td1 = document.createElement("td");
+        td1.textContent = "3";
+        console.log(td1);
+        const tr=document.createElement("tr");
+        // tr.appendChild(td1);
+        // tr.append(td1);
+        console.log(tr);
+
+        const td2 = document.createElement("td");
+        td2.textContent = "제목3";
+        const td3 = document.createElement("td");
+        td3.textContent = "김민한";
+        const td4 = document.createElement("td");
+        td4.textContent = "2026-01-09";
+
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        tr.appendChild(td4);
+
+        // table>tbody 이 목표물에 appendChild를 이용하여 tr을 넣는다. (화면에 출력)
+        const target=document.querySelector("table>tbody");
+        // target.appendChild(tr);
+        target.append(tr); //뒤에 추가
+        // target.prepend(tr); //앞에 추가
+        // target.insertBefore(tr, tbody.children[1]); //사이에 추가
+
+        // 테이블에 있는 내용을 가져오는 방법
+        // tbody에서 2번 행에서 3번째 열의 데이터를 가져오는 방법
+
+        // querySelector 함수는 row를 지원하지 않음 
+        // const target2=document.querySelector("table>tbody"); 
+
+        const target2=document.getElementById("tbody"); 
+        const row=target2.rows[1]; //행의 번호는 0부터 시작 하므로 2번 행은 1이디.
+        const cell=row.cells[2];
+        console.log(cell.textContent);
+
+    </script>
+
+    <style>
+        /* 테이블에 마우스를 올려놓을 경우 현재 위치를 배경색으로 표시 */
+        tr:hover {
+            /* background-color: yellow; */
+        }
+        /* tr 아래에 th에 배경이 있을 경우 tr은 적용이 되지 않는 상태가 된다
+        (모든 기준은 자신이다)  */
+
+        tr:nth-child(1){
+
+        }
+        /* 2번째부터라는 뜻 */
+        tr:nth-child(n+2):hover{
+            background-color: yellow;
+            cursor: pointer;
+        }
+    </style>
+</body>
+
+</html>

@@ -1,11 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+        <style>
+            .address,
+            .email,
+            .name,
+            .phone {
+                /* position: relative; */
+                display: flex;
+                justify-content: center;
+            }
+
+            .body i {
+                /* position: absolute; */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                /* top: 50%;
+                left: 20px; */
+                /* color: white; */
+                transform: translate(0%, -35%);
+            }
+
+            /* input 박스와 아이콘이 겹치는 문제 해결 */
+            .body input[type="text"] {
+                padding-left: 25px;
+            }
+
+            /* 디자인 처리 */
+            .wrap {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 100vh;
+                border: 5px solid black;
+                border-radius: 15px;
+                background-color: #d9d9d9;
+            }
+            .header {
+                background-color: gray;
+                color: white;
+                text-align: center;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                margin-bottom: 20px;
+            }
+
+            .header > h3 {
+                color: white;
+                text-align: center;
+                margin: 0;
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+
+            .body {
+                /* height: calc(917*0.8)px; */
+                /* height: calc(917px*0.8); */
+                /* background-color: aqua; */
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                border-bottom: solid 1px gray;
+                justify-content: space-around;
+                width: 70%;
+                margin: 0 auto;
+                font-size: 30px;
+                text-align: center;
+                font-weight: bold;
+
+            }
+
+            /* footer 밑에 버튼 처리 */
+            /* .footer {
+                display: flex;
+                justify-content: center;
+                /* 아래 두 버튼 세로정렬 
+                padding-top: 30px;
+                padding-bottom: 30px;
+                gap: 40px;
+                align-items: center;
+            } */
+            .footer {
+                display: flex;
+                justify-content: space-around;
+                padding: 20px;
+                flex-wrap: wrap;
+
+            }
+
+            .footer > input[type="reset"] {
+                display: flex;
+                width: 30%;
+                height: 50px;
+                background-color: red;
+                color: white;
+                border-radius: 5px;
+                border: none;
+            }
+            .footer > input[type="submit"] {
+                display: flex;
+                width: 30%;
+                height: 50px;
+                background-color: gray;
+                color: white;
+                border-radius: 5px;
+                border: none;
+            }
+            /* .footer > input:nth-child(1) {
+                background-color: red;
+            }
+            .footer > input:nth-child(2) {
+                background-color: gray;
+            } */
+
+            img {
+                border-radius: 50%;
+                width: 150px;
+                height: 150px;
+                object-fit: cover;
+                display: block;
+                margin: 10px auto 0;
+                text-align: center;
+            }
+            .img-div{
+                text-align: center;
+                font-size: 30px;
+                font-weight: bold;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="header">
+                <h3>Contact Delete</h3>
+            </div>
+
+            <div class="img-div">
+                <div class="img">
+                    <img src="karina.png" alt="사진">
+                </div>
+                Karina
+            </div>
+
+            <div class="body">
+                <p>
+                    Are you sure you want to delete this contact?
+                </p>
+
+            </div>
+            <div class="footer">
+                <input type="reset" value="Delete">
+                <input type="submit" value="Cancel">
+            </div>
+        </div>
+    </body>
 </html>

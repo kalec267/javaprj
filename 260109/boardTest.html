@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>간단한 게시판</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .post-form {
+            margin-bottom: 20px;
+        }
+
+        .post-form input,
+        .post-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .post-item {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .post-item h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .post-item p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .comment-form {
+            margin-top: 10px;
+        }
+
+        .comment-form textarea {
+            width: 80%;
+        }
+
+        .comment-list {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .comment-item {
+            margin-top: 5px;
+        }
+
+        .comment-item p {
+            margin: 0;
+            padding: 5px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>간단한 게시판</h1>
+
+        <!-- 게시글 작성 폼 -->
+        <div class="post-form">
+            <input type="text" id="post-title" placeholder="게시글 제목" />
+            <textarea id="post-content" rows="4" placeholder="게시글 내용을 작성하세요..."></textarea>
+            <button onclick="addPost()">게시글 작성</button>
+        </div>
+
+        <!-- 게시글 목록 -->
+        <ul id="post-list" class="post-list">
+            <!-- 게시글 항목이 여기에 추가됩니다. -->
+        </ul>
+    </div>
+
+    <script>
+        // 게시글을 담을 배열
+        let posts = [];
+
+        // 게시글 추가 함수
+        function addPost() {
+            const title = document.getElementById('post-title').value;
+            const content = document.getElementById('post-content').value;
+
+            if (title && content) {
+                const newPost = { title, content, comments: [] };
+                posts.push(newPost);
+                renderPosts();
+                document.getElementById('post-title').value = '';
+                document.getElementById('post-content').value = '';
+            } else {
+                alert('제목과 내용을 입력해주세요.');
+            }
+        }
+
+        // 게시글 목록 렌더링 함수
+        function renderPosts() {
+            const postList = document.getElementById('post-list');
+            postList.innerHTML = '';
+
+            posts.forEach((post, index) => {
+                const postItem = document.createElement('li');
+                postItem.classList.add('post-item');
+
+                postItem.innerHTML = `
+                <h3>${post.title}</h3>
+                <p>${post.content}</p>
+                <button onclick="toggleCommentForm(${index})">댓글 달기</button>
+                <div id="comment-form-${index}" class="comment-form" style="display: none;">
+                    <textarea id="comment-input-${index}" rows="3" placeholder="댓글을 작성하세요..."></textarea>
+                    <button onclick="addComment(${index})">댓글 추가</button>
+                </div>
+                <ul id="comment-list-${index}" class="comment-list"></ul>
+            `;
+
+                postList.appendChild(postItem);
+            });
+        }
+
+        // 댓글 추가 함수
+        function addComment(postIndex) {
+            const commentInput = document.getElementById(`comment-input-${postIndex}`).value;
+
+            if (commentInput) {
+                posts[postIndex].comments.push(commentInput);
+                renderPosts();
+            } else {
+                alert('댓글 내용을 입력해주세요.');
+            }
+        }
+
+        // 댓글 입력 폼 표시/숨기기
+        function toggleCommentForm(postIndex) {
+            const commentForm = document.getElementById(`comment-form-${postIndex}`);
+            commentForm.style.display = commentForm.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // 게시글 렌더링 초기화
+        renderPosts();
+    </script>
+
+</body>
+
+</html>

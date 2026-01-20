@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <pre>
+        - 객체 구분, 접근방법
+        []: 배열 -> arr[0]
+        {}: 객체 person["name"] or person.name
+        function 함수명{}: 함수
+        fruits: 변수
+        "apple": 문자열
+        100: 숫자
+
+        - "{\"name\":\"홍길동", \"age\":\"20"}" -> json 형태
+        - {"name":"홍길동", "age":"20"} -> 객체
+        - [100, 200, 300] or ["apple", "banana"] -> 배열
+
+        - json은 문자열이며 객체형태를 가지고있음
+        - json을 객체로 변경하는 함수: json.parse(json 문자열);
+        - 네트워크에서 데이터를 전송하기 위해서는 객체를 전송할 수 없음, 그러므로 객체를 문자열로 변경 해야함
+        json.stringify(객체);
+    </pre>
+    </body>
+    <script>
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "https://jsonplaceholder.typicode.com/users?id=1", true);
+        xhttp.send();
+        xhttp.onload = function () {
+            console.log(xhttp.responseText);
+            
+            const obj=JSON.parse(xhttp.responseText);
+            console.log(obj[0].address.geo.lat);
+
+        }
+    </script>
+</html>

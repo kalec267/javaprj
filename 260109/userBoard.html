@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f4f4f4;
+            }
+
+            .container {
+                width: 80%;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            h1 {
+                text-align: center;
+                color: #333;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+
+            table,
+            td,
+            th {
+                border: 1px solid #ddd;
+            }
+
+            td,
+            th {
+                padding: 10px;
+                text-align: left;
+            }
+
+            th {
+                background-color: #f4f4f4;
+            }
+
+            .form-container {
+                margin-top: 20px;
+            }
+
+            .form-container input,
+            .form-container textarea {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+
+            .form-container button {
+                padding: 10px 20px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            .form-container button:hover {
+                background-color: #45a049;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>사용자 목록</h1>
+            <!-- 사용자 목록 -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>이름</th>
+                        <th>이메일</th>
+                        <th>전화번호</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <a href="#">이름</a>
+                        </td>
+                        <td>kim@gmail.com</td>
+                        <td>010-1111-1111</td>
+                    </tr>
+
+                    <!-- 사용자 목록은 여기에 추가됩니다 -->
+                </tbody>
+            </table>
+
+        </div>
+
+    </body>
+
+    <script>
+        /* 상세보기는 틀이 정해져있는 상태이므로 body에 폼을 만들고
+    폼 위치에 데이터를 넣으면 되지만 전체 리스트는 크기가 정해져있지 않으므로
+    태그를 생성하여 객체를 만들고 생성된 객체를 특정 위치에 넣어주는 처리
+    1. ajax 처리를 위한 도구 생성 (open, send, onload처리)
+    2. 수신된 데이터를 확인하고 객체로 변환 (responseText, JSON.parse())
+    3. 객체에서 첫 번째 배열의 내용 중 필요한 데이터만 추출 (id, name, email, phone)
+    4. table에 tr을 추가할 객체 만들기 (테이블 객체를 생성할 때 td, tr 순서로 생성)
+    */
+
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "https://jsonplaceholder.typicode.com/users?id=1", true);
+        xhttp.send();
+        xhttp.onload = function () {
+
+            /*
+            // console.log(xhttp.responseText);
+            const obj = JSON.parse(xhttp.responseText);
+            // console.log(obj); 데이터 추출
+            let id = obj[0].id;
+            let name = obj[0].name;
+            let email = obj[0].email;
+            let phone = obj[0].phone;
+
+            // 데이터 추출 잘 되었는지 확인
+            console.log(id, name, email, phone);
+
+            // td 4개 생성
+            const td1=document.createElement("td");
+            const td2=document.createElement("td");
+            const td3=document.createElement("td");
+            const td4=document.createElement("td");
+
+            // td에 값 입력
+            td1.textContent=obj[0].id;
+            td2.textContent=obj[0].name;
+            td3.textContent=obj[0].email;
+            td4.textContent=obj[0].phone;
+
+            // tr객체 만들고 tr에 4개의 td 추가하기
+            const tr=document.createElement("tr");
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+            console.log(tr);
+
+            // 생성된 tr을 tbody에 추가하기
+            document.getElementById("tbody").append(tr);
+            // 위의 코드 반복 처리하기
+            */
+
+            // ---------------------------------------------------------
+            const obj = JSON.parse(xhttp.responseText);
+            console.log(obj);
+            for (i = 0; i < obj.length; i++) {
+                // let id = obj[i].id[i];
+                // let name = obj[i].name;
+                // let email = obj[i].email;
+                // let phone = obj[i].phone;
+                // console.log(obj[i].id[i], obj[i].name, obj[i].email, obj[i].phone);
+
+                
+                let id = obj[i].id;
+                let name = obj[i].name;
+                let email = obj[i].email;
+                let phone = obj[i].phone;
+                console.log(id, name, email, phone);
+
+                for(i=0;i<obj.length;i++){
+                    const td1=document.createElement("td");
+                    const td2=document.createElement("td");
+                    const td3=document.createElement("td");
+                    const td4=document.createElement("td");
+
+                    td1.textContent=obj[i].id;
+                    td2.textContent=obj[i].name;
+                    td3.textContent=obj[i].email;
+                    td4.textContent=obj[i].phone;
+
+                    const tr=document.createElement("tr");
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                    tr.appendChild(td3);
+                    tr.appendChild(td4);
+                    console.log(tr);
+
+                    document.getElementById("tbody").append(tr);
+                }
+
+            }
+        }
+    </script>
+</html>

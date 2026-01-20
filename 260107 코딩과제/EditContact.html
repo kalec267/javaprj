@@ -1,11 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+        <style>
+            .address,
+            .email,
+            .name,
+            .phone {
+                /* position: relative; */
+                display: flex;
+                justify-content: center;
+            }
+
+            .body i {
+                /* position: absolute; */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                /* top: 50%;
+                left: 20px; */
+                /* color: white; */
+                transform: translate(0%, -35%);
+            }
+
+            /* input 박스와 아이콘이 겹치는 문제 해결 */
+            .body input[type="text"] {
+                padding-left: 25px;
+            }
+
+            /* 디자인 처리 */
+            .wrap {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 100vh;
+                border: 5px solid black;
+                border-radius: 15px;
+            }
+            .header {
+                background-color: gray;
+                color: white;
+                text-align: center;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                margin-bottom: 20px;
+            }
+
+            .inputbox {
+                display: flex;
+                align-items: center;
+                border: 1px solid #ccc;
+                padding: 20px 10px;
+                width: 100%;
+                height: 45px;
+                border-radius: 6px;
+                /* 박스 크기 안에서 처리 */
+                box-sizing: border-box;
+            }
+
+            .address,
+            .email,
+            .name,
+            .phone {
+                border: none;
+            }
+            .inputbox input {
+                flex: 1;
+                border: none;
+                outline: none;
+                font-size: 16px;
+            }
+
+            .inputbox i {
+                color: #999;
+            }
+
+            .header > h3 {
+                color: white;
+                text-align: center;
+                margin: 0;
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+
+            .address > input,
+            .email > input,
+            .name > input,
+            .phone > input {
+                flex: 1;
+                height: 30px;
+            }
+            .address,
+            .email,
+            .name,
+            .phone {
+                text-align: center;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            .body {
+                /* height: calc(917*0.8)px; */
+                /* height: calc(917px*0.8); */
+                /* background-color: aqua; */
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                border-bottom: solid 1px gray;
+            }
+
+            /* footer 밑에 버튼 처리 */
+            /* .footer {
+                display: flex;
+                justify-content: center;
+                /* 아래 두 버튼 세로정렬 
+                padding-top: 30px;
+                padding-bottom: 30px;
+                gap: 40px;
+                align-items: center;
+            } */
+            .footer {
+                display: flex;
+                justify-content: space-around;
+                padding: 20px;
+            }
+
+            .footer > input[type="reset"] {
+                display: flex;
+                width: 30%;
+                height: 30px;
+                background-color: gray;
+                color: white;
+                border-radius: 5px;
+                border: none;
+            }
+            .footer > input[type="submit"] {
+                display: flex;
+                width: 30%;
+                height: 30px;
+                background-color: blue;
+                color: white;
+                border-radius: 5px;
+                border: none;
+
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="header">
+                <h3>Edit Contact</h3>
+            </div>
+            <div class="body">
+                <div class="inputbox">
+                    <div class="name inputbox">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="name">
+                    </div>
+                </div>
+
+                <div class="inputbox">
+                    <div class="phone inputbox">
+                        <i class="fa-solid fa-phone"></i>
+                        <input type="text" placeholder="phone">
+                    </div>
+                </div>
+
+                <div class="inputbox">
+                    <div class="email inputbox">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="text" placeholder="email">
+                    </div>
+                </div>
+
+                <div class="inputbox">
+                    <div class="address inputbox">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <input type="text" placeholder="address">
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="footer">
+                <input type="submit" value="Save">
+                <input type="reset" value="Cancel">
+                
+            </div>
+        </div>
+    </body>
 </html>
