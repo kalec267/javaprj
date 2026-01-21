@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            .header {
+                width: 100%;
+                height: 10vh;
+                background-color: lightgray;
+                color: black;
+                text-align: left;
+                font-size: 30px;
+                margin-bottom: 10px;
+            }
+
+            .header i {
+                margin-left: 20px;
+            }
+
+            .header > header > .login {
+                float: right;
+                padding: 0 20px;
+                margin: 0 20px 0 0;
+                color: white;
+                text-decoration: none;
+                font-size: 20px;
+                font-weight: bold;
+                color: blue;
+
+            }
+            .main {
+                display: flex;
+                text-align: center;
+            }
+            .main > aside {
+                width: 20%;
+                height: 60vh;
+                text-align: center;
+
+            }
+            .footer > footer {
+                width: 100%;
+                height: 5vh;
+                background-color: black;
+                color: white;
+                line-height: 5vh;
+                text-align: center;
+                font-size: 16px;
+
+            }
+            .header > ul {
+                display: flex;
+                flex-wrap: wrap;
+                padding: 0;
+                margin: 0;
+                list-style: none;
+                background-color: black;
+                color: white;
+                font-size: 20px;
+                justify-content: center;
+                list-style: none;
+                height: 55px;
+            }
+
+            .header > ul > li {
+                padding: 0;
+                margin-right: 30px;
+                list-style: none;
+            }
+
+            main > aside {
+                font-size: 24px;
+                text-align: left;
+                margin-top: 20px;
+                margin-left: 20px;
+            }
+            main > aside > p {
+                font-size: 16px;
+                text-align: left;
+                margin: 10px 0;
+            }
+
+            .main > aside {
+                background-color: lightgray;
+                width: 20%;
+                text-align: center;
+                margin: 20px 10px;
+                padding-top: 10px;
+                text-align: left;
+            }
+
+            .main > aside >ul{
+                list-style: none;
+                margin: 10px 20px;
+                padding-top: 10px;
+            }
+            .main > aside >ul > li{
+                list-style: none;
+                margin: 10px 20px;
+                padding-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="header">
+                <header>
+                    <i class="fa fa-house"></i>
+                    <strong>사이트명</strong>
+                    <div class="login" onclick="loadpage('김민한login.html')">로그인</div>
+                </header>
+
+                <ul>
+                    <li>홈</li>
+                    <li>서비스</li>
+                    <li>소개</li>
+                    <li>블로그</li>
+                    <li>연락처</li>
+                </ul>
+            </div>
+
+            <div class="main">
+                <aside>
+                    <ul>
+                        <p>
+                            <strong>사이드메뉴<br>
+                            </strong>
+                        </p>
+                        <li>카테고리1</li>
+                        <li>카테고리2</li>
+                        <li>카테고리3</li>
+                        <li>카테고리4</li>
+                        <li>카테고리5</li>
+                    </ul>
+                </aside>
+                <main id="main">
+                    <aside>메인 콘텐츠 영역
+                        <p>
+                            여기에 메인 콘텐츠가 들어갑니다.
+                        </p>
+                    </aside>
+                </main>
+            </div>
+            <div class="footer">
+                <footer>&copy;2024 사이트명 All rights reserved.</footer>
+            </div>
+        </div>
+
+        <script>
+            function loadpage(url) {
+                const main = document.getElementById("main");
+                const xhttp = new XMLHttpRequest();
+                xhttp.open("GET", url, true);
+                xhttp.send();
+                xhttp.onreadystatechange = function () {
+                    main.innerHTML = xhttp.responseText;
+                }
+
+            }
+        </script>
+    </body>
+</html>
