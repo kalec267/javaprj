@@ -1,15 +1,15 @@
-package d260122_03_report;
+package d260122_03_BookProgram_Report;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 public class BookManager {
-//    private Book[] b= new Book[100];
-    private ArrayList<Book> bb = new ArrayList<Book>();
-//    private int index=0;
+
+    private ArrayList<Book> bb = new ArrayList<>();
 
     public BookManager(){
+
         try{
             fileload("book.txt");
         } catch (Exception e){
@@ -18,10 +18,11 @@ public class BookManager {
     }
 
     public void fileload(String filename){
-        bb=new ArrayList<Book>();
+        bb=new ArrayList<>();
         try{
             BufferedReader br = new BufferedReader(new FileReader(filename));
             String data="";
+            int id;
             while((data=br.readLine())!=null){
                 insert(
                         Integer.parseInt(data.split(" ")[0]),
@@ -64,13 +65,13 @@ public class BookManager {
         bb.add(new Book(author, isbn, date));
     }
     public void insert(int id, String author, String isbn, String date){
-        bb.add(new Book(bb.size()+1, author, isbn, date));
+        bb.add(new Book(id, author, isbn, date));
     }
 
     public void select() {
         for(Book b:bb){
             if(b.getId()!=0){
-                System.out.println(b);
+                System.out.println(bb);
             }
         }
     }

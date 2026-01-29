@@ -9,7 +9,7 @@ import java.awt.event.WindowEvent;
 public class ListBoxMain2 {
 
     public static void main(String[] args) {
-        //ê¸°ë³¸ì‚¬í•­ ì„¤ì •
+        //±âº»»çÇ× ¼³Á¤
         Frame f = new Frame();
         f.setBounds(0, 0, 300, 500);
         f.setTitle("list box");
@@ -20,7 +20,7 @@ public class ListBoxMain2 {
                 System.exit(0);
             }
         });
-        //ë ˆì´ì•„ì›ƒì„¤ì •
+        //·¹ÀÌ¾Æ¿ô¼³Á¤
         //f.setLayout(new FlowLayout());
         f.setLayout(new BorderLayout());
         Label label = new Label("id name hp");
@@ -29,13 +29,13 @@ public class ListBoxMain2 {
         f.add(label, BorderLayout.NORTH);
 
         java.awt.List list = new List();
-        //list.add(label);//ë¦¬ìŠ¤íŠ¸ì— ê°’ì´ ë“¤ì–´ê°€ì§€ ì•ŠëŠ” ìƒíƒœ(flowlayout)
+        //list.add(label);//¸®½ºÆ®¿¡ °ªÀÌ µé¾î°¡Áö ¾Ê´Â »óÅÂ(flowlayout)
         list.add("1 hong 010-1111-1111");
         list.add("2 kim 010-1111-2222");
         list.add("3 ryo 010-1111-3333");
         f.add(list, BorderLayout.CENTER);
 
-        //ìƒì„¸ë³´ê¸° BorderLayoutì˜ southì— êµ¬í˜„
+        //»ó¼¼º¸±â BorderLayoutÀÇ south¿¡ ±¸Çö
         Label idlb = new Label("id:");
         idlb.setBackground(Color.ORANGE);
         idlb.setPreferredSize(new Dimension(200, 30));
@@ -57,20 +57,20 @@ public class ListBoxMain2 {
         f.pack();
         //f.invalidate();
         //f.repaint();
-        //boardlayoutì— ì•„ë˜ì™€ ê°™ì´ ë“±ë¡í–ˆì„ ë•Œ ë§ˆì§€ë§‰ì— ë“±ë¡ëœ ë ˆì´ë¸”ë§Œ í‘œì‹œ
+        //boardlayout¿¡ ¾Æ·¡¿Í °°ÀÌ µî·ÏÇßÀ» ¶§ ¸¶Áö¸·¿¡ µî·ÏµÈ ·¹ÀÌºí¸¸ Ç¥½Ã
 		/*
 		f.add(idlb,BorderLayout.SOUTH);
 		f.add(namelb,BorderLayout.SOUTH);
 		f.add(hplb,BorderLayout.SOUTH);
 		*/
 
-        //ì•„ì´í…œì— í´ë¦­ì„ í–ˆì„ ë•Œ ì²˜ë¦¬ë¥¼ í•˜ê¸° ìœ„í•´ì„œëŠ” ë¦¬ìŠ¤ë„ˆ ë“±ë¡
+        //¾ÆÀÌÅÛ¿¡ Å¬¸¯À» ÇßÀ» ¶§ Ã³¸®¸¦ ÇÏ±â À§ÇØ¼­´Â ¸®½º³Ê µî·Ï
         list.addItemListener(new ItemListener() {
 
             @Override
             public void itemStateChanged(ItemEvent e) {
-                //e(ì´ë²¤íŠ¸)ì—ì„œ getItemì€ ì¸ë±ìŠ¤ë²ˆí˜¸
-                //listì—ì„œ getItemì€ ë‚´ìš©ì„ ì˜ë¯¸
+                //e(ÀÌº¥Æ®)¿¡¼­ getItemÀº ÀÎµ¦½º¹øÈ£
+                //list¿¡¼­ getItemÀº ³»¿ëÀ» ÀÇ¹Ì
                 System.out.println(list.getItem((int) e.getItem()));
                 System.out.println(list.getSelectedItem());
                 System.out.println(list.getSelectedItem().split(" ")[0]);

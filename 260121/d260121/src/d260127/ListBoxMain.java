@@ -19,15 +19,15 @@ public class ListBoxMain {
             }
         });
 
-//        ë ˆì´ì•„ì›ƒ ì„¤ì •
+//        ·¹ÀÌ¾Æ¿ô ¼³Á¤
         f.setLayout(new FlowLayout());
         java.awt.List list = new List();
-        list.add("ì‚¬ê³¼");
+        list.add("»ç°ú");
         list.add("banana");
         list.add("mango");
         f.add(list);
 
-//        ì•„ì´í…œì— í´ë¦­ì„ í–ˆì„ ë•Œ ì²˜ë¦¬ë¥¼ í•˜ê¸° ìœ„í•´ì„œëŠ” ë¦¬ìŠ¤ë„ˆ ë“±ë¡ì„ í•´ì•¼í•¨
+//        ¾ÆÀÌÅÛ¿¡ Å¬¸¯À» ÇßÀ» ¶§ Ã³¸®¸¦ ÇÏ±â À§ÇØ¼­´Â ¸®½º³Ê µî·ÏÀ» ÇØ¾ßÇÔ
         list.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {

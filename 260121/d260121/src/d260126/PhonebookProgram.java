@@ -20,9 +20,11 @@ public class PhonebookProgram {
                     insert();
                     break;
                 case 2:
+//                    전체출력
                     views();
                     break;
                 case 3:
+//                    찾기
                     view();
                     break;
                 case 4:

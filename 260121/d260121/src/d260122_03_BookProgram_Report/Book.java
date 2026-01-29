@@ -1,4 +1,4 @@
-package d260122_03_report;
+package d260122_03_BookProgram_Report;
 //도서관리 프로그램
 //Book 객체
 //BookManager객체
@@ -6,17 +6,21 @@ package d260122_03_report;
 
 
 public class Book {
-    private String author, isbn, date;
-    private int id;
+    int id;
+    String author, isbn, date;
 
+
+    public Book(){
+
+    }
     public Book(String author, String isbn, String date, int id) {
     }
 
-    public Book(int id, String date, String isbn, String author) {
+    public Book(int id, String author, String isbn,String date) {
         this.id = id;
-        this.date = date;
-        this.isbn = isbn;
         this.author = author;
+        this.isbn = isbn;
+        this.date = date;
     }
 
     public Book(String author, String isbn, String date) {
@@ -24,8 +28,6 @@ public class Book {
         this.isbn = isbn;
         this.date = date;
     }
-
-
 
     public String getAuthor() {
         return author;
@@ -62,7 +64,7 @@ public class Book {
     @Override
     public String toString() {
         return "Book{" +
-                ", id=" + id +
+                "id='" + id +'\''+
                 "author='" + author + '\'' +
                 ", isbn='" + isbn + '\'' +
                 ", date='" + date + '\'' +

@@ -1,4 +1,4 @@
-package d260122_03_report;
+package d260122_03_BookProgram_Report;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -10,6 +10,7 @@ public class BookProgram {
 
     String searchAuthor=null;
     String author, isbn, date;
+    int id;
 
     public BookProgram() throws IOException {
         while(true) {
@@ -18,10 +19,10 @@ public class BookProgram {
                     insert();
                     break;
                 case 2:
-                    view();
+                    views();
                     break;
                 case 3:
-                    views();
+                    view();
                     break;
                 case 4:
                     update();
@@ -30,7 +31,7 @@ public class BookProgram {
                     delete();
                     break;
                 case 0:
-                    System.out.println("도사관리 프로그램을 종료합니다...");
+                    System.out.println("도서관리 프로그램을 종료합니다...");
                     System.exit(0);
                 default:
                     System.out.println("0번부터 5번까지만 입력하세요.");
@@ -49,6 +50,9 @@ public class BookProgram {
     }
 
     public void insert() {
+        System.out.print("도서 ID를 입력하세요.");
+        id=scan.nextInt();
+
         System.out.print("저자를 입력하세요.");
         author= scan.next();
 

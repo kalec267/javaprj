@@ -47,7 +47,7 @@ public class PhonebookManager {
 		//pb.removeAll(null);
 		pb=new ArrayList<Phonebook>();
 		//index=0;
-		//phonebook.txtíŒŒì¼ì„ ë©”ëª¨ë¦¬ë¡œ ë¡œë“œ
+		//phonebook.txtÆÄÀÏÀ» ¸Ş¸ğ¸®·Î ·Îµå
 		try {
 		BufferedReader br
 		=new BufferedReader(new FileReader(filename));
@@ -125,7 +125,7 @@ public class PhonebookManager {
 			}
 		}
 		*/
-		//ì²«ë²ˆì§¸ ë°©ë²•
+		//Ã¹¹øÂ° ¹æ¹ı
 		/*
 		for(int i=0;i<pb.size();i++) {
 			Phonebook p=pb.get(i);
@@ -136,7 +136,7 @@ public class PhonebookManager {
 		}
 		*/
 
-		//ë‘ë²ˆì§¸ ë°©ë²•
+		//µÎ¹øÂ° ¹æ¹ı
 		/*
 		for(Phonebook p:pb) {
 			if(p.getName().equals(name)) {
@@ -146,7 +146,7 @@ public class PhonebookManager {
 		}
 		*/
 
-		//ì„¸ë²ˆì§¸ ë°©ë²•(ì´íŠ¸ë ˆì´í„°)
+		//¼¼¹øÂ° ¹æ¹ı(ÀÌÆ®·¹ÀÌÅÍ)
 		Iterator<Phonebook> it=pb.iterator();
 		while(it.hasNext()) {
 			Phonebook p=it.next();
@@ -177,13 +177,13 @@ public class PhonebookManager {
 		}
 
 		if (pb.size() == i) {
-			System.out.println("ì „í™”ë²ˆí˜¸ë¶€ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+			System.out.println("ÀüÈ­¹øÈ£ºÎ°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
 			return null;
 		}
         return null;
     }
 
-	//ì°¾ëŠ” ì‚¬ëŒì´ ë°°ì—´ì— ì¡´ì¬í•˜ëŠ” ì—¬ë¶€ í™•ì¸í•˜ëŠ” í•¨ìˆ˜
+	//Ã£´Â »ç¶÷ÀÌ ¹è¿­¿¡ Á¸ÀçÇÏ´Â ¿©ºÎ È®ÀÎÇÏ´Â ÇÔ¼ö
 	public boolean isExist(String searchname) {
 		for(Phonebook p:pb) {
 			if(p.getName().equals(searchname)) {
@@ -198,7 +198,7 @@ public class PhonebookManager {
 		for(Phonebook p:pb) {
 			if(p.getName().equals(name)) {
 				return new Phonebook(p.getName(),p.getHp(),p.getEmail());
-				//BeanUtils.copyProperties(); //spring ê°ì²´
+				//BeanUtils.copyProperties(); //spring °´Ã¼
 
 			}
 		}
