@@ -31,35 +31,35 @@ public class BookProgram {
                     delete();
                     break;
                 case 0:
-                    System.out.println("ë„ì„œê´€ë¦¬ í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤...");
+                    System.out.println("µµ¼­°ü¸® ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù...");
                     System.exit(0);
                 default:
-                    System.out.println("0ë²ˆë¶€í„° 5ë²ˆê¹Œì§€ë§Œ ì…ë ¥í•˜ì„¸ìš”.");
+                    System.out.println("0¹øºÎÅÍ 5¹ø±îÁö¸¸ ÀÔ·ÂÇÏ¼¼¿ä.");
             }
         }
     }
 
     public int menu() {
-        System.out.println("1. ë„ì„œ ì •ë³´ ë“±ë¡");
-        System.out.println("2. ëª¨ë“  ë„ì„œ ì¶œë ¥");
-        System.out.println("3. ë„ì„œ ì°¾ê¸°");
-        System.out.println("4. ë„ì„œ ì •ë³´ ìˆ˜ì •");
-        System.out.println("5. ë„ì„œ ì •ë³´ ì‚­ì œ");
+        System.out.println("1. µµ¼­ Á¤º¸ µî·Ï");
+        System.out.println("2. ¸ğµç µµ¼­ Ãâ·Â");
+        System.out.println("3. µµ¼­ Ã£±â");
+        System.out.println("4. µµ¼­ Á¤º¸ ¼öÁ¤");
+        System.out.println("5. µµ¼­ Á¤º¸ »èÁ¦");
 
         return scan.nextInt();
     }
 
     public void insert() {
-        System.out.print("ë„ì„œ IDë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
+        System.out.print("µµ¼­ ID¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
         id=scan.nextInt();
 
-        System.out.print("ì €ìë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
+        System.out.print("ÀúÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
         author= scan.next();
 
-        System.out.print("ISBNì„ ì…ë ¥í•˜ì„¸ìš”.");
+        System.out.print("ISBNÀ» ÀÔ·ÂÇÏ¼¼¿ä.");
         isbn=scan.next();
 
-        System.out.print("ë°œí–‰ì¼ìë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
+        System.out.print("¹ßÇàÀÏÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
         date= scan.next();
 
         bm.insert(author, isbn, date);
@@ -71,7 +71,7 @@ public class BookProgram {
     }
 
     public void view() throws IOException {
-        System.out.print("ì°¾ì„ ì €ìë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
+        System.out.print("Ã£À» ÀúÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
         searchAuthor=scan.next();
         bm.selectByName(searchAuthor);
         System.in.read();
@@ -81,15 +81,15 @@ public class BookProgram {
         if(scan.hasNextLine()){
             scan.nextLine();
         }
-        System.out.print("ìˆ˜ì •í•  ì €ìì˜ ì´ë¦„ ì…ë ¥");
+        System.out.print("¼öÁ¤ÇÒ ÀúÀÚÀÇ ÀÌ¸§ ÀÔ·Â");
         searchAuthor=scan.nextLine();
 
         if(bm.isExist(searchAuthor)){
-            System.out.print("ë³€ê²½í•  ë„ì„œ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”[ë³€ê²½ì‚¬í•­ì´ ì—†ìœ¼ë©´ enter]");
+            System.out.print("º¯°æÇÒ µµ¼­ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä[º¯°æ»çÇ×ÀÌ ¾øÀ¸¸é enter]");
             author = scan.nextLine();
-            System.out.print("ë³€ê²½í•  ISBNì„ ì…ë ¥í•˜ì„¸ìš”[ë³€ê²½ì‚¬í•­ì´ ì—†ìœ¼ë©´ enter]");
+            System.out.print("º¯°æÇÒ ISBNÀ» ÀÔ·ÂÇÏ¼¼¿ä[º¯°æ»çÇ×ÀÌ ¾øÀ¸¸é enter]");
             isbn = scan.nextLine();
-            System.out.print("ë³€ê²½í•  ë‚ ì§œë¥¼ ì…ë ¥í•˜ì„¸ìš”[ë³€ê²½ì‚¬í•­ì´ ì—†ìœ¼ë©´ enter]");
+            System.out.print("º¯°æÇÒ ³¯Â¥¸¦ ÀÔ·ÂÇÏ¼¼¿ä[º¯°æ»çÇ×ÀÌ ¾øÀ¸¸é enter]");
             date = scan.nextLine();
 
             Book b=bm.getBookByName(searchAuthor);
@@ -104,12 +104,12 @@ public class BookProgram {
             }
             bm.update(searchAuthor, b);
         }else{
-            System.out.println("ìˆ˜ì •í•  ë„ì„œ ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤.");
+            System.out.println("¼öÁ¤ÇÒ µµ¼­ Á¤º¸°¡ ¾ø½À´Ï´Ù.");
         }
     }
 
     public void delete(){
-        System.out.print("ì‚­ì œí•  ë„ì„œë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
+        System.out.print("»èÁ¦ÇÒ µµ¼­¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
         searchAuthor=scan.next();
         if(bm.isExist(searchAuthor)){
             bm.delete(searchAuthor);
@@ -117,18 +117,18 @@ public class BookProgram {
     }
 
     private void booksave(){
-        System.out.print("ì €ì¥í•  íŒŒì¼ëª…: ");
+        System.out.print("ÀúÀåÇÒ ÆÄÀÏ¸í: ");
         String filename=scan.next();
 
         if(!bm.filesave(filename)){
-            System.out.println("íŒŒì¼ ì €ì¥ ì‹¤íŒ¨");
+            System.out.println("ÆÄÀÏ ÀúÀå ½ÇÆĞ");
             return;
         }
-        System.out.println("íŒŒì¼ ì €ì¥ ì„±ê³µ");
+        System.out.println("ÆÄÀÏ ÀúÀå ¼º°ø");
     }
 
     private void bookload(){
-        System.out.print("ë¡œë“œí•  íŒŒì¼ ì…ë ¥: ");
+        System.out.print("·ÎµåÇÒ ÆÄÀÏ ÀÔ·Â: ");
         String filename=scan.next();
         bm.fileload(filename);
     }

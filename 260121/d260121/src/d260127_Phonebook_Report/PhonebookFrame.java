@@ -1,4 +1,4 @@
-package d260127;
+package d260127_Phonebook_Report;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -22,7 +22,7 @@ public class PhonebookFrame extends Frame {
     TextField insertEmailtf;
     Button insertInsertbtn;
     //        전체 출력 부품
-    java.awt.List listBox;
+    List listBox;
     Label viewIdlb, viewNamelb, viewHplb, viewEmaillb;
 
 
@@ -30,7 +30,7 @@ public class PhonebookFrame extends Frame {
     Label updateNamelb;
     TextField updateaSearchtf;
     Button updateSearchbtn;
-    java.awt.List updateSearchListBox;
+    List updateSearchListBox;
 
     //    수정 부품
     Label editNamelb;
@@ -43,7 +43,10 @@ public class PhonebookFrame extends Frame {
 
     Button editbtn;
 
-//    삭제 부품
+    //    삭제 부품
+    Label delNamelb;
+    TextField delNametf;
+    Button delbtn;
 
     public PhonebookFrame() {
         setTitle("전화번호부 프로그램1");
@@ -64,7 +67,6 @@ public class PhonebookFrame extends Frame {
         menuViewbtn = new Button("search Phonebook");
         menuUpdatebtn = new Button("update Phonebook");
         menuDeletebtn = new Button("delete Phonebook");
-
 
 //         부품에 대한 설정
         menuInsertbtn.setPreferredSize(new Dimension(300, 50));
@@ -247,7 +249,6 @@ public class PhonebookFrame extends Frame {
         updateaSearchtf = new TextField(20);
         updateSearchbtn = new Button(("search"));
 
-
         updateNamelb.setVisible(false);
         updateaSearchtf.setVisible(false);
         updateSearchbtn.setVisible(false);
@@ -292,6 +293,14 @@ public class PhonebookFrame extends Frame {
                 if (p != null) {
                     updateSearchListBox.add(p.getId() + " " + p.getName());
                 }
+
+                Button editbtn = new Button("수정");
+                Button deletebtn = new Button("삭제");
+                Button menubtn = new Button("메뉴");
+
+                editbtn.setVisible(true);
+                deletebtn.setVisible(true);
+                menubtn.setVisible(true);
                 revalidate();
                 repaint();
             }
@@ -317,7 +326,7 @@ public class PhonebookFrame extends Frame {
         editHptf = new TextField(20);
         editEmaillb = new Label("edit Email");
         editEmailtf = new TextField(20);
-        editbtn = new Button("edit");
+        editbtn = new Button("update");
 
         editNamelb.setVisible(false);
         editNametf.setVisible(false);
@@ -334,6 +343,7 @@ public class PhonebookFrame extends Frame {
         add(editEmaillb);
         add(editEmailtf);
         add(editbtn);
+
 
         menuUpdatebtn.addActionListener(new ActionListener() {
             @Override
@@ -355,9 +365,38 @@ public class PhonebookFrame extends Frame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible();
+            }
+        });
 
 
+        delNamelb = new Label("삭제할 이름 입력");
+        delNametf = new TextField(20);
+        delbtn = new Button("삭제");
+        delNamelb.setVisible(false);
+        delNametf.setVisible(false);
+        delbtn.setVisible(false);
+        add(delNamelb);
+        add(delNametf);
+        add(delbtn);
 
+        menuDeletebtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible();
+                System.out.println("test");
+
+                delNamelb.setVisible(true);
+                delNametf.setVisible(true);
+                delbtn.setVisible(true);
+            }
+        });
+
+        delbtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible();
+                System.out.println("삭제버튼 눌림");
+                new DialogFrame(delbtn);
             }
         });
     }
@@ -401,8 +440,46 @@ public class PhonebookFrame extends Frame {
         editEmailtf.setVisible(false);
         editbtn.setVisible(false);
 
+        delNamelb.setVisible(false);
+        delNametf.setVisible(false);
+        delbtn.setVisible(false);
 
 
+    }
+}
+
+class DialogFrame extends Frame {
+    private Button button;
+    private Dialog dialog;
+
+    public DialogFrame(Button button, Button button1) {
+        this.button = button1;
+        setBounds(100, 100, 450, 300);
+        setLayout(new FlowLayout());
+        setVisible(true);
+
+        button = new Button("삭제하기");
+        add(button);
+
+        dialog = new Dialog(this, "삭제하기", true);
+        dialog.setBounds(100, 100, 450, 300);
+        dialog.setVisible(true);
+
+    }
+
+    public DialogFrame(Button button) {
+        this.button = button;
+    }
+
+    public DialogFrame() {
+
+    }
+
+    public Button getButton() {
+        return button;
+    }
+    public Dialog getDialog() {
+        return dialog;
     }
 }
 

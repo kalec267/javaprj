@@ -114,7 +114,7 @@ public class BookManager {
             i++;
         }
         if(bb.size()==i){
-            System.out.println("ì €ìê°€ ì—†ìŠµë‹ˆë‹¤.");
+            System.out.println("ÀúÀÚ°¡ ¾ø½À´Ï´Ù.");
         }
     }
 

@@ -1,4 +1,4 @@
-package d260127;
+package d260127_Phonebook_Report;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -126,7 +126,6 @@ public class PhonebookManager {
 		}
 		*/
 		//첫번째 방법
-		/*
 		for(int i=0;i<pb.size();i++) {
 			Phonebook p=pb.get(i);
 			if(p.getName().equals(name)) {
@@ -134,7 +133,6 @@ public class PhonebookManager {
 				break;  // or return;
 			}
 		}
-		*/
 
 		//두번째 방법
 		/*
@@ -146,15 +144,15 @@ public class PhonebookManager {
 		}
 		*/
 
-		//세번째 방법(이트레이터)
-		Iterator<Phonebook> it=pb.iterator();
+		//세번째 방법(이터레이터)
+		/*Iterator<Phonebook> it=pb.iterator();
 		while(it.hasNext()) {
 			Phonebook p=it.next();
 			if(p.getName().equals(name)) {
 				it.remove();
 				break;
 			}
-		}
+		}*/
 
 		/*
 		for(Phonebook p:pb) {

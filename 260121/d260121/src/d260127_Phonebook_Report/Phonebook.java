@@ -1,4 +1,4 @@
-package d260127;
+package d260127_Phonebook_Report;
 
 public class Phonebook {
     int id;
