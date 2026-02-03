@@ -8,28 +8,50 @@ import java.util.Date;
 //Oracle, H2에 대해 처리
 // 어떤값을 어떻게 입력하고 출력할지 
 public class Accountbook {
-//	private int id; //아이디
-//	private String type; //수입 또는 지출
-//	private int amount; //금액
-	private String name;
+	private int id; //아이디
+	private String type; //수입 또는 지출
+	private int amount; //금액
 	private String category; //분류
-//	private String date;
-//	private java.util.Date date; //사용날짜 or java.sql.Date
+	private java.util.Date date; //사용날짜 or java.sql.Date
+	private String memo;
 
-	public Accountbook() {}
+	public Accountbook() {
+	}
 
-
-	public Accountbook(String name, String category) {
-		this.name = name;
+	public Accountbook(int id, String type, int amount, String category, Date date, String memo) {
+		this.id = id;
+		this.type = type;
+		this.amount = amount;
 		this.category = category;
+		this.date = date;
+		this.memo = memo;
 	}
 
-	public String getName() {
-		return name;
+//	public Accountbook(int id, String type, int amount, String category, String date, String memo) {
+//	}
+
+	public int getId() {
+		return id;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 
 	public String getCategory() {
@@ -40,11 +62,31 @@ public class Accountbook {
 		this.category = category;
 	}
 
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public String getMemo() {
+		return memo;
+	}
+
+	public void setMemo(String memo) {
+		this.memo = memo;
+	}
+
 	@Override
 	public String toString() {
 		return "Accountbook{" +
-				"name='" + name + '\'' +
+				"id=" + id +
+				", type='" + type + '\'' +
+				", amount=" + amount +
 				", category='" + category + '\'' +
+				", date=" + date +
+				", memo=" + memo +
 				'}';
 	}
 }
