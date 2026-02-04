@@ -21,7 +21,7 @@
     <file url="file://$PROJECT_DIR$/src/d260129_02/LGPanel.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/d260129_02/Main.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/d260130/Main2.java" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/src/d260202_02/AccountbookProgram.java" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/src/d260202_02/OracleAccountBookDAO.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/d260202_02_Accountbook/AccountbookProgram.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/d260202_02_Accountbook/OracleAccountBookDAO.java" charset="x-windows-949" />
   </component>
 </project>
