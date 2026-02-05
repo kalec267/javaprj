@@ -12,7 +12,7 @@ public class AccountbookManager {
     public void selectByCategory(String category) {
         List<Accountbook> list = dao.findByCategory(category);
 
-        if (list == null || list.isEmpty()) { 
+        if (list == null || list.isEmpty()) {
             System.out.println("해당 카테고리 데이터가 없습니다.");
             return;
         }
